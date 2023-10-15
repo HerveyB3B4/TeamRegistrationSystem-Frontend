@@ -27,8 +27,8 @@
   
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import type { FormInstance, FormRules } from 'element-plus';
 import { ElMessage } from 'element-plus';
+import type { FormInstance, FormRules } from 'element-plus';
 import router from "../../routers";
 import teamService from '../../apis/teamService';
 

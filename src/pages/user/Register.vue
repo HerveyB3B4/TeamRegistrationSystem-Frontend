@@ -41,8 +41,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
+import { reactive, ref } from 'vue';
+import { FormInstance, FormRules, ElMessage } from 'element-plus';
 import router from "../../routers";
 import userService from '../../apis/userService'
 
