@@ -80,7 +80,7 @@
                   @click="clickToQuitTeam(teamInfo?.id)">退出该团队</el-button>
                 <div v-else>
                   <el-dialog v-model="dialogTableVisible2" title="上传新头像">
-                    <avatarUploaderVue />
+                    <avatarUploaderVue/>
                   </el-dialog>
                   <el-button v-show="teamInfo?.confirm == 0" type="info" @click="dialogTableVisible2 = true">上传团队头像</el-button>
                   <el-button v-show="teamInfo?.confirm == 0" type="danger"
