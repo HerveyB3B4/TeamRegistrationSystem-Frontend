@@ -39,3 +39,9 @@ export interface userMessage {
     information: string,
     time: string,
 }
+
+export interface forgotPasswordInfo {
+    account: string,
+    password: string,
+    code: string,
+}

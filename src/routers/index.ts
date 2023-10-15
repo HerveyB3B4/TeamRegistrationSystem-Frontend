@@ -4,9 +4,9 @@ import LoginVue from "../pages/user/Login.vue";
 import RegisterVue from "../pages/user/Register.vue";
 import ProfileEditorVue from "../pages/user/ProfileEditor.vue";
 import MessageVue from "../pages/user/Message.vue";
+import Forgot from '../pages/user/Forgot.vue';
 import TeamsVue from "../pages/team/Search.vue";
 import CreateVue from "../pages/team/Create.vue";
-import LeoTest from '../pages/LeoTest.vue';
 
 const routes = [
   {
@@ -23,6 +23,7 @@ const routes = [
     component: LoginVue,
     meta: {
       title: '用户登录',
+
     },
   },
   {
@@ -31,6 +32,7 @@ const routes = [
     component: RegisterVue,
     meta: {
       title: '用户注册',
+
     },
   },
   {
@@ -39,6 +41,7 @@ const routes = [
     component: ProfileEditorVue,
     meta: {
       title: '修改个人信息',
+      isAuth: true,
     },
   },
   {
@@ -47,6 +50,7 @@ const routes = [
     component: TeamsVue,
     meta: {
       title: '团队',
+      isAuth: true,
     },
   },
   {
@@ -55,6 +59,7 @@ const routes = [
     component: CreateVue,
     meta: {
       title: '创建团队',
+      isAuth: true,
     }
   },
   {
@@ -63,14 +68,15 @@ const routes = [
     component: MessageVue,
     meta: {
       title: '消息通知',
+      isAuth: true,
     }
   },
   {
-    path: "/leo",
-    name: "Leo",
-    component: LeoTest,
+    path: "/forgot",
+    name: "Forgot",
+    component: Forgot,
     meta: {
-      title: 'Leo组件测试页',
+      title: '忘记密码',
     },
   }
 ];
@@ -80,5 +86,20 @@ const router = createRouter({
   routes: routes
 });
 
-export default router;
+//全局前置路由守卫————初始化的时候被调用、每次路由切换之前被调用
+router.beforeEach((to, from, next) => {
+  //如果路由需要跳转
+  if (to.meta.isAuth) {
+    //判断 如果school本地存储是qinghuadaxue的时候，可以进去
+    if (localStorage.getItem('login') === 'true') {
+      next()  //放行
+    } else {
+      alert('抱歉，您无权限查看！')
+    }
+  } else {
+    // 否则，放行
+    next()
+  }
+});
 
+export default router;

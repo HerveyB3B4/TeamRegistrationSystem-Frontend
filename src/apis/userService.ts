@@ -1,5 +1,5 @@
 import request from "./request";
-import { loginInfo, registerInfo, userSubmitInfo } from "../types/personalInfo";
+import { loginInfo, registerInfo, userSubmitInfo, forgotPasswordInfo } from "../types/personalInfo";
 
 export default class userService {
     static async login(data: loginInfo): Promise<any> {
@@ -66,6 +66,30 @@ export default class userService {
             },
             method: "get",
             url: "/api/user/message",
+        });
+    }
+
+    static async forgotPassword(data: forgotPasswordInfo): Promise<any> {
+        return request({
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            method: "put",
+            url: "/api/ret",
+            data: data,
+        });
+    }
+
+    static async sendEmail(account: string): Promise<any> {
+        return request({
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            method: "post",
+            url: "/api/email",
+            data: {
+                account: account,
+            },
         });
     }
 }

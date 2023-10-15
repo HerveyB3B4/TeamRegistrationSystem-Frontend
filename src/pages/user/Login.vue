@@ -22,9 +22,9 @@
         </el-input>
       </el-col>
     </el-row>
-    <!-- <el-row justify="end" :gutter="10">
-        <el-link :underline="false" type="primary" href="/forgot">Forgot password</el-link>
-    </el-row> -->
+    <el-row justify="end" :gutter="10">
+        <el-link :underline="false" type="primary" href="/forgot">忘记密码</el-link>
+    </el-row>
     <el-button type="primary" @click="login">登录</el-button>
   </el-card>
   <el-card>
