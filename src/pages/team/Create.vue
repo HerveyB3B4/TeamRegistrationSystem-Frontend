@@ -4,6 +4,7 @@
             <List />
         </el-icon><el-text size="large" tag="b" type="info">注册新团队</el-text>
         <br />
+        <br />
         <el-form ref="createFormRef" :model="createForm" status-icon :rules="rules" label-width="70px" class="create">
             <el-form-item label="团队名" prop="name">
                 <el-input v-model="createForm.name" />
