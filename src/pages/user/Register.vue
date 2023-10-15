@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import type { FormInstance, FormRules, ElMessage } from 'element-plus'
+import type { FormInstance, FormRules } from 'element-plus'
 import router from "../../routers";
 import userService from '../../apis/userService'
 
@@ -156,8 +156,6 @@ const submit = async () => {
       const responseData = res.data.data;
       console.log(responseData);
       router.push("/login");
-    } else {
-      ElMessage.error(res.data.msg);
     }
   }
 }
