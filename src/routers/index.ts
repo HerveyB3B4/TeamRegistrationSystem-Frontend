@@ -84,21 +84,18 @@ const router = createRouter({
   routes: routes
 });
 
-// //全局前置路由守卫————初始化的时候被调用、每次路由切换之前被调用
-// router.beforeEach((to, from, next) => {
-//   //如果路由需要跳转
-//   if (to.meta.isAuth) {
-//     //判断 如果school本地存储是qinghuadaxue的时候，可以进去
-//     if (localStorage.getItem('login') === 'true') {
-//       next()  //放行
-//     } else {
-//       alert('抱歉，您无权限查看！')
-//     }
-//   } else {
-//     // 否则，放行
-//     next()
-//   }
-// });
-
+router.beforeEach((to, from, next) => {
+  //如果路由需要跳转
+  if (to.meta.isAuth) {
+      if (localStorage.getItem('token')){
+        next()
+      } else {
+        next("/login")
+      }
+    }else{
+    console.log("/没有权限")
+    next()
+  }
+})
 
 export default router;

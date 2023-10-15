@@ -156,6 +156,8 @@ const submit = async () => {
       const responseData = res.data.data;
       console.log(responseData);
       router.push("/login");
+    } else {
+      ElMessage.error(res.data.msg)
     }
   }
 }
