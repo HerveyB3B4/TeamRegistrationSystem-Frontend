@@ -25,6 +25,7 @@ import Sentences from '../components/sentences.vue';
 .el-card {
   margin-bottom: 100px;
   margin-top: 50px;
+  width: 600px;
 }
 
 .el-card:last-child {
@@ -33,4 +34,5 @@ import Sentences from '../components/sentences.vue';
 
 .a {
   font-style: italic;
-}</style>
+}
+</style>
